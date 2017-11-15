@@ -29,7 +29,7 @@ export default {
 
         this.hasSelectAll && row.unshift(this.$createElement('th', [checkbox]))
 
-        children = this.genTR(row)
+        children = [this.genTR(row), this.genTProgress()]
       }
 
       return this.$createElement('thead', [children])
@@ -49,6 +49,7 @@ export default {
         attrs: {
           role: 'columnheader',
           scope: 'col',
+          width: header.width || null,
           'aria-label': header[this.headerText] || '',
           'aria-sort': 'none'
         }
@@ -91,7 +92,7 @@ export default {
       }
 
       classes.push('sortable')
-      const icon = this.$createElement('v-icon', { attrs: { 'aria-hidden': true } }, 'arrow_upward')
+      const icon = this.$createElement('v-icon', 'arrow_upward')
       if (header.align && header.align === 'left') {
         children.push(icon)
       } else {

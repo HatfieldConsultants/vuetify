@@ -17,12 +17,6 @@ button($material)
   &:not(.btn--icon):not(.btn--flat)
     background-color: $material.app-bar
 
-  // Specific styles for styling on date-picker
-  &:not(.btn--disabled):not(.btn--date-picker)
-    &.btn--icon,
-    &.btn--floating
-      color: $material.icons.active
-
 theme(button, "btn")
 
 /** Base Spec */
@@ -83,7 +77,7 @@ theme(button, "btn")
 
 /** Icons */
 .btn .btn__content .icon
-  color: inherit 
+  color: inherit
 
 /** Types */
 .btn
@@ -91,7 +85,7 @@ theme(button, "btn")
     background-color: transparent !important
     box-shadow: none !important
 
-  &--raised
+  &:not(.btn--depressed)
     will-change: box-shadow
     elevation(2)
 
@@ -131,8 +125,11 @@ theme(button, "btn")
     height: $button-floating-width
     width: $button-floating-width
     padding: 0
-    z-index: 4
     elevation(6)
+
+    &.btn--fixed,
+    &.btn--absolute
+      z-index: 4
 
     &:active
       elevation(12)
@@ -261,10 +258,16 @@ theme(button, "btn")
   &--small
     font-size: $button-small-font-size
     height: $button-small-height
+    
+    .btn__content
+      padding: $button-small-padding
 
   &--large
     font-size: $button-large-font-size
     height: $button-large-height
+    
+    .btn__content
+      padding: $button-large-padding
 
 
 /** Loader */
@@ -297,7 +300,7 @@ theme(button, "btn")
 
 /** Custom Buttons */
 .btn
-  &--outline
+  &.btn--outline
     border: 1px solid currentColor
     background: transparent !important
     box-shadow: none

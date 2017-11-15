@@ -96,11 +96,11 @@ export default {
     },
     customFilter: {
       type: Function,
-      default: (items, search, filter) => {
+      default: (items, search, filter, headers) => {
         search = search.toString().toLowerCase()
-        return items.filter(i => (
-          Object.keys(i).some(j => filter(i[j], search))
-        ))
+        const props = headers.map(h => h.value)
+
+        return items.filter(item => props.some(prop => filter(getObjectValueByPath(item, prop), search)))
       }
     },
     customSort: {
@@ -222,7 +222,7 @@ export default {
         this.search !== null
 
       if (hasSearch) {
-        items = this.customFilter(items, this.search, this.filter)
+        items = this.customFilter(items, this.search, this.filter, this.headers)
         this.searchLength = items.length
       }
 
@@ -337,7 +337,6 @@ export default {
         'class': this.classes
       }, [
         this.genTHead(),
-        this.genTProgress(),
         this.genTBody(),
         this.genTFoot()
       ])

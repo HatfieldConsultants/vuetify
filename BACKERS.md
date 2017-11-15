@@ -5,6 +5,11 @@ You can join them in supporting Vuetify.js by [pledging on Patreon](https://www.
 ### $500+
 - [LMAX Exchange](https://www.lmax.com/)
 
+### $250+
+- [Intygrate](http://intygrate.com/)
+- [Eikos Partners](http://www.eikospartners.com/)
+- [rateGenius](https://application.rategenius.com/)
+
 ### $100+
 - [Anthony Gherghetta](https://gorilladash.com/)
 
@@ -13,6 +18,8 @@ You can join them in supporting Vuetify.js by [pledging on Patreon](https://www.
 - [Steve Gehrman](https://cocoatech.com/)
 - [Cycloid](https://www.cycloid.io/)
 - [LiveCasino](https://livecasino.com/)
+- [Nate Controls](http://www.natecontrols.com/)
+- [Trek10](https://www.trek10.com/)
 
 ### $20+
 - Tibor Nagy
@@ -23,6 +30,12 @@ You can join them in supporting Vuetify.js by [pledging on Patreon](https://www.
 - Sam Mitchell
 - David Hess
 - Roger Vilaseca
+- Jay Blanchard
+- Christo Crampton
+- Team Of Monkeys
+- Robin Paolini
+- [Integra CCS](https://www.integraccs.com/)
+- Joel Hatch
 
 ### $10+
 
@@ -34,7 +47,6 @@ You can join them in supporting Vuetify.js by [pledging on Patreon](https://www.
 - Chava Sobreyra
 - Dima Shmakov
 - Costa Huang
-- Jay Blanchard
 - Ryan Mortier
 - Roger Vilaseca
 - Paul
@@ -48,3 +60,17 @@ You can join them in supporting Vuetify.js by [pledging on Patreon](https://www.
 - Sam Bosell
 - Cliff Hess
 - Antonio Luis Gil Rodríguez
+- Omar Spira
+- Jiří Žižka
+- Dejan Kovac
+- Anythony Estebe
+- Luis F Rocha
+- HelloWorld
+- Eeico Wentrup
+- Mathieu Boyer
+- Chris Britton
+- Matthew O'Leary
+- Mike Margerum
+- Reto Aebersold
+- Max Matteo Staack
+- Mark Freedman

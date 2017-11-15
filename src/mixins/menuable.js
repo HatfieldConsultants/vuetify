@@ -123,7 +123,13 @@ export default {
     calcLeft () {
       const a = this.dimensions.activator
       const c = this.dimensions.content
-      let left = this.left ? a.right - c.width : a.left
+      // Content always has a min width
+      // of its activator. This is applied
+      // when the menu is shown, but not
+      // reflected in the getBoundingClientRect
+      // method
+      const minWidth = a.width < c.width ? c.width : a.width
+      let left = this.left ? a.right - minWidth : a.left
 
       if (this.offsetX) left += this.left ? -a.width : a.width
       if (this.nudgeLeft) left -= this.nudgeLeft
@@ -271,7 +277,7 @@ export default {
       requestAnimationFrame(() => (this.isContentActive = true))
     },
     isShown (el) {
-      return el.style.display !== 'none'
+      return !!el && el.style.display !== 'none'
     },
     resetDimensions () {
       this.dimensions = Object.assign({}, dimensions)
@@ -283,7 +289,7 @@ export default {
 
       const dimensions = {}
 
-      // Activate should already be shown
+      // Activator should already be shown
       dimensions.activator = !this.hasActivator || this.absolute
         ? this.absolutePosition()
         : this.measure(this.getActivator())

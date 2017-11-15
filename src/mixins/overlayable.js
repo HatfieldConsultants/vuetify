@@ -44,7 +44,7 @@ export default {
         ? this.$el.parentNode
         : document.querySelector('[data-app]')
 
-      parent.insertBefore(this.overlay, parent.firstChild)
+      parent && parent.insertBefore(this.overlay, parent.firstChild)
 
       this.overlay.clientHeight // Force repaint
       requestAnimationFrame(() => {
@@ -82,6 +82,8 @@ export default {
      */
     scrollListener (e) {
       if (e.type === 'keydown') {
+        if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return
+
         const up = [38, 33]
         const down = [40, 34]
 
