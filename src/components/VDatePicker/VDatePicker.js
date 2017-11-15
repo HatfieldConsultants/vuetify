@@ -47,6 +47,10 @@ export default {
   },
 
   props: {
+    startOrEnd: {
+      type: String,
+      default: 'start'
+    },
     allowedDates: {
       type: [Array, Object, Function],
       default: () => (null)
@@ -306,7 +310,7 @@ export default {
       } else if (this.activePicker === 'MONTH') {
         pickerBodyChildren.push(h('div', { staticClass: 'picker--date__header' }, [this.genSelector()]))
         pickerBodyChildren.push(this.genTable([
-          this.monthGenTBody()
+          this.monthGenTBody(this.startOrEnd)
         ], value => this.tableDate = `${this.tableYear + value}`))
       } else if (this.activePicker === 'YEAR') {
         pickerBodyChildren.push(this.genYears())
