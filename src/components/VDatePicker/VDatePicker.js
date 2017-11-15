@@ -48,6 +48,7 @@ export default {
   },
 
   props: {
+    startOrEnd: 'start',
     locale: {
       type: String,
       default: 'en-us'
@@ -320,7 +321,7 @@ export default {
       } else if (this.activePicker === 'MONTH') {
         pickerBodyChildren.push(h('div', { staticClass: 'picker--date__header' }, [this.genSelector()]))
         pickerBodyChildren.push(this.genTable([
-          this.monthGenTBody()
+          this.monthGenTBody(this.props.startOrEnd)
         ], value => this.tableDate = this.normalizeDate(this.tableYear + value)))
       } else if (this.activePicker === 'YEAR') {
         pickerBodyChildren.push(this.genYears())

@@ -10,15 +10,24 @@ export default {
 
       this.tableDate = this.normalizeDate(year)
     },
-    monthClick (month) {
-      this.inputDate = this.normalizeDate(this.tableYear, month, this.day)
+    monthClick (month, startOrEnd) {
+      // If end picker, get last date of month
+
+      if (startOrEnd === 'start') {
+        day = 1
+      } else {
+        day = new Date(this.tableYear, month + 1, 0).getDate()
+      }
+      var day = 31
+      // If start picker, just use 1st date
+      this.inputDate = this.normalizeDate(this.tableYear, month, day)
       if (this.type === 'date') {
         this.activePicker = 'DATE'
       } else {
         this.$nextTick(() => (this.autosave && this.save()))
       }
     },
-    monthGenTD (month) {
+    monthGenTD (month, startOrEnd) {
       const date = this.normalizeDate(this.tableYear, month)
       let monthName
 
@@ -52,19 +61,19 @@ export default {
             innerHTML: `<span class="btn__content">${monthName}</span>`
           },
           on: {
-            click: () => this.monthClick(month)
+            click: () => this.monthClick(month, startOrEnd)
           }
         })
       ])
     },
-    monthGenTBody () {
+    monthGenTBody (startOrEnd) {
       const children = []
       const cols = Array(3).fill(null)
       const rows = 12 / cols.length
 
       for (let row = 0; row < rows; row++) {
         children.push(this.$createElement('tr', cols.map((_, col) => {
-          return this.monthGenTD(row * cols.length + col)
+          return this.monthGenTD(row * cols.length + col, startOrEnd)
         })))
       }
 
