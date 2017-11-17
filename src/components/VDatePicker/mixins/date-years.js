@@ -28,7 +28,7 @@ export default {
       const children = []
       for (let year = this.year + 100, length = this.year - 100; year > length; year--) {
         const buttonText = this.formatters.year(`${year}`)
-        children.push(this.$createElement('td', {
+        children.push(this.$createElement('li', {
           'class': this.year === year
             ? this.addTextColorClassChecks({ active: true })
             : {},

@@ -19,8 +19,7 @@ export default {
       }
       // Updates inputDate setting 'YYYY-MM' or 'YYYY-MM-DD' format, depending on the picker type
       if (this.type === 'date') {
-        const date = this.sanitizeDateString(`${this.tableYear}-${month + 1}-${defaultDay}`, 'date')
-        if (this.isAllowed(date)) this.inputDate = date
+        this.inputDate = this.sanitizeDateString(`${this.tableYear}-${month + 1}-${defaultDay}`, 'date')
         this.updateTableMonth(month)
         this.activePicker = 'DATE'
       } else {
