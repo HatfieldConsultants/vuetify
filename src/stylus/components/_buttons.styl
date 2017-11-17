@@ -258,14 +258,14 @@ theme(button, "btn")
   &--small
     font-size: $button-small-font-size
     height: $button-small-height
-    
+
     .btn__content
       padding: $button-small-padding
 
   &--large
     font-size: $button-large-font-size
     height: $button-large-height
-    
+
     .btn__content
       padding: $button-large-padding
 
@@ -303,6 +303,20 @@ theme(button, "btn")
   &.btn--outline
     border: 1px solid currentColor
     background: transparent !important
+    box-shadow: none
+
+    &:hover
+      box-shadow: none
+
+  &.btn--nodata
+    background-color: rgba(255, 0, 0, 0.30) !important
+    box-shadow: none
+
+    &:hover
+      box-shadow: none
+
+  &.btn--yesdata
+    background-color: rgba(0, 255, 0, 0.25) !important
     box-shadow: none
 
     &:hover
