@@ -279,8 +279,6 @@ export default {
 
       const maxDate = max(...this.allowedDates)
       const minDate = min(...this.allowedDates)
-      console.log(date)
-      console.log((isBefore(date, minDate) || isAfter(date, maxDate)))
       return (isBefore(date, minDate) || isAfter(date, maxDate))
     },
     genTableTouch (touchCallback) {
