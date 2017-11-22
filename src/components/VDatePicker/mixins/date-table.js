@@ -21,7 +21,7 @@ export default {
       const classes = Object.assign({
         'btn--active': isActive,
         'btn--outline': isCurrent && !isActive,
-        'btn--nodata': !this.isAllowed(date) && !isActive,
+        'btn--disabled': this.isInBounds(date),
         'btn--yesdata': this.isAllowed(date) && !isActive
       }, this.themeClasses)
 

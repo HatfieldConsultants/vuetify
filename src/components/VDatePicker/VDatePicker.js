@@ -17,6 +17,11 @@ import Touch from '../../directives/touch'
 
 const pad = n => (n * 1 < 10) ? `0${n * 1}` : `${n}`
 
+var max = require('date-fns/max')
+var min = require('date-fns/min')
+var isAfter = require('date-fns/is_after')
+var isBefore = require('date-fns/is_before')
+
 export default {
   name: 'v-date-picker',
 
@@ -268,6 +273,15 @@ export default {
       }
 
       return true
+    },
+    isInBounds (date) {
+      if (!this.allowedDates) return true
+
+      const maxDate = max(...this.allowedDates)
+      const minDate = min(...this.allowedDates)
+      console.log(date)
+      console.log((isBefore(date, minDate) || isAfter(date, maxDate)))
+      return (isBefore(date, minDate) || isAfter(date, maxDate))
     },
     genTableTouch (touchCallback) {
       return {

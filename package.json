@@ -101,6 +101,7 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "date-fns": "^1.29.0",
     "moment": "^2.19.1"
   },
   "peerDependencies": {
