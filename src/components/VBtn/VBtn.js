@@ -154,7 +154,6 @@ export default {
     data.attrs.value = ['string', 'number'].includes(typeof this.value)
       ? this.value
       : JSON.stringify(this.value)
-
     return h(tag, data, children)
   }
 }

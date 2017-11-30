@@ -10,11 +10,16 @@ export default {
 
       this.tableDate = `${year}`
     },
-    monthClick (month) {
+    monthClick (month, startOrEnd) {
+      var defaultDay
+      if (startOrEnd === 'start') {
+        defaultDay = 1
+      } else {
+        defaultDay = new Date(this.tableYear, month + 1, 0).getDate()
+      }
       // Updates inputDate setting 'YYYY-MM' or 'YYYY-MM-DD' format, depending on the picker type
       if (this.type === 'date') {
-        const date = this.sanitizeDateString(`${this.tableYear}-${month + 1}-${this.day}`, 'date')
-        if (this.isAllowed(date)) this.inputDate = date
+        this.inputDate = this.sanitizeDateString(`${this.tableYear}-${month + 1}-${defaultDay}`, 'date')
         this.updateTableMonth(month)
         this.activePicker = 'DATE'
       } else {
@@ -22,7 +27,7 @@ export default {
         this.$nextTick(() => (this.autosave && this.save()))
       }
     },
-    monthGenTD (month) {
+    monthGenTD (month, startOrEnd) {
       const pad = n => (n * 1 < 10) ? `0${n * 1}` : `${n}`
       const date = `${this.tableYear}-${pad(month + 1)}`
       const monthName = this.formatters.month(date)
@@ -48,19 +53,19 @@ export default {
             innerHTML: `<span class="btn__content">${monthName}</span>`
           },
           on: {
-            click: () => this.monthClick(month)
+            click: () => this.monthClick(month, startOrEnd)
           }
         })
       ])
     },
-    monthGenTBody () {
+    monthGenTBody (startOrEnd) {
       const children = []
       const cols = Array(3).fill(null)
       const rows = 12 / cols.length
 
       for (let row = 0; row < rows; row++) {
         children.push(this.$createElement('tr', cols.map((_, col) => {
-          return this.monthGenTD(row * cols.length + col)
+          return this.monthGenTD(row * cols.length + col, startOrEnd)
         })))
       }
 

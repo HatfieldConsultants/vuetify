@@ -99,7 +99,11 @@
     "webpack-merge": "^4.1.0",
     "write-file-webpack-plugin": "^4.1.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.17.1",
+    "date-fns": "^1.29.0",
+    "moment": "^2.19.1"
+  },
   "peerDependencies": {
     "vue": "^2.5.0"
   },

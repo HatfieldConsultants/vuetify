@@ -21,7 +21,8 @@ export default {
       const classes = Object.assign({
         'btn--active': isActive,
         'btn--outline': isCurrent && !isActive,
-        'btn--disabled': !this.isAllowed(date)
+        'btn--disabled': this.isInBounds(date),
+        'btn--yesdata': this.isAllowed(date) && !isActive
       }, this.themeClasses)
 
       const button = this.$createElement('button', {
