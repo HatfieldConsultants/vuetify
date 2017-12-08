@@ -11162,8 +11162,6 @@ var isBefore = __webpack_require__(149);
 
       var maxDate = max.apply(undefined, _toConsumableArray(this.allowedDates));
       var minDate = min.apply(undefined, _toConsumableArray(this.allowedDates));
-      console.log(date);
-      console.log(isBefore(date, minDate) || isAfter(date, maxDate));
       return isBefore(date, minDate) || isAfter(date, maxDate);
     },
     genTableTouch: function genTableTouch(touchCallback) {
