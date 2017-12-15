@@ -257,7 +257,7 @@ export default {
       if (this.$parent && this.$parent.isActive) this.$parent.isActive = false
     },
     isAllowed (date) {
-      if (!this.allowedDates) return true
+      if (!this.allowedDates) return false
 
       // date parameter must be in ISO 8601 format with leading zero
       // If allowedDates is an array its values must be in ISO 8601 format with leading zero
@@ -275,7 +275,7 @@ export default {
       return true
     },
     isInBounds (date) {
-      if (!this.allowedDates) return true
+      if (!this.allowedDates) return false
 
       const maxDate = max(...this.allowedDates)
       const minDate = min(...this.allowedDates)

@@ -11157,7 +11157,7 @@ var isBefore = __webpack_require__(149);
       if (this.$parent && this.$parent.isActive) this.$parent.isActive = false;
     },
     isAllowed: function isAllowed(date) {
-      if (!this.allowedDates) return true;
+      if (!this.allowedDates) return false;
 
       // date parameter must be in ISO 8601 format with leading zero
       // If allowedDates is an array its values must be in ISO 8601 format with leading zero
@@ -11175,7 +11175,7 @@ var isBefore = __webpack_require__(149);
       return true;
     },
     isInBounds: function isInBounds(date) {
-      if (!this.allowedDates) return true;
+      if (!this.allowedDates) return false;
 
       var maxDate = max.apply(undefined, _toConsumableArray(this.allowedDates));
       var minDate = min.apply(undefined, _toConsumableArray(this.allowedDates));
